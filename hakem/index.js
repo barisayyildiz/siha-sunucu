@@ -26,17 +26,20 @@ channel.on('connection', socket => {
 			{
 				"lat" : getRandomValue(40.25,40.26),
 				"lon" : getRandomValue(29.55,29.56),
-				"height" : getRandomValue(10,100)
+				"height" : getRandomValue(10,100),
+				"mode" : true
 			},
 			{
 				"lat" : getRandomValue(40.25,40.26),
 				"lon" : getRandomValue(29.55,29.56),
-				"height" : getRandomValue(10,100)
+				"height" : getRandomValue(10,100),
+				"mode" : true
 			},
 			{
 				"lat" : getRandomValue(40.25,40.26),
 				"lon" : getRandomValue(29.55,29.56),
-				"height" : getRandomValue(10,100)
+				"height" : getRandomValue(10,100),
+				"mode" : false
 			}
 		]
 		);  // burası callback metodumuz olarak düşünülebilir
