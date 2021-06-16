@@ -25,19 +25,6 @@ let engineData = {
 	"heat": 0
 };
 
-channel.on('connection', mysocket => {
-
-	// Beni kanser eden kod, bazen çalışıyor bazen çalışmıyordu
-	// Ancak önyüzü hakem serverlarına bağladığımda sorun çözüldü
-	socket.on("output road", data => {
-		console.log("#############");
-		console.log(data);
-		console.log("#############");
-		mysocket.broadcast.emit("frontend data", data);	
-	})
-
-})
-
 appServer.listen(PORT, () => {
 	console.log(`${Date(Date.now()).toLocaleString()}: Sunucu ${PORT} nolu port üzerinden aktif konumda.`);
 })
@@ -58,6 +45,15 @@ setInterval(function () {
 	socket.emit("input road", droneData);
 }, 2000);
 
+
+channel.on('connection', mysocket => {
+	console.log('front end bağlandı');
+
+	socket.on('output road', data => {
+		console.log("all drone datas : ", data);
+		mysocket.emit("frontend data", data);
+	})
+})
 
 function getRandomValue(min, max)
 {
