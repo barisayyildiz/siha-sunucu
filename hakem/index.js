@@ -42,25 +42,18 @@ channel.on('connection', socket => {
 				"mode" : false
 			}
 		]
-		);  // burası callback metodumuz olarak düşünülebilir
+		);  // burası callback metodumuz olarak düşünülebilir, frontend tarafında kullanacağımız veriler
 
 	})
-
 
 	socket.on('disconnect', () => {
-
 		console.log(`${Date(Date.now()).toLocaleString()}istemci bağlantıyı kapattı`);
-
 	})
-
-
 
 })
 
 appServer.listen(PORT, () => {
-
 	console.log(`${Date(Date.now()).toLocaleString()}: Sunucu ${PORT} nolu port üzerinden aktif konumda.`);
-
 })
 
 function getRandomValue(min, max)
